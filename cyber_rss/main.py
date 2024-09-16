@@ -20,8 +20,8 @@ async def get_rss():
     plugin_loader.load_plugins()
     sources = get_all()
     for source in sources:
-        url = source.url
-        parser = source.parser
+        url = source["url"]
+        parser = source["parser"]
         parser_class = plugin_loader.get_plugin(parser)
         print(f"{url} {parser} {parser_class}")
         if parser_class:
