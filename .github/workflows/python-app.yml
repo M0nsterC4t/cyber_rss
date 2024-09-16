@@ -31,8 +31,8 @@ jobs:
       - name: create .env file
         run: |
           touch  cyber_rss/.env
-          echo "BOT_TOKEN=${{BOT_TOKEN}}" >> cyber_rss/.env
-          echo "CHAT_ID=${{CHAT_ID}}" >> cyber_rss/.env
-          echo "THREAD_MESSAGE_ID=${{THREAD_MESSAGE_ID}}" >> cyber_rss/.env
+          echo "BOT_TOKEN=${{secrets.BOT_TOKEN}}" >> cyber_rss/.env
+          echo "CHAT_ID=${{secrets.CHAT_ID}}" >> cyber_rss/.env
+          echo "THREAD_MESSAGE_ID=${{secrets.THREAD_MESSAGE_ID}}" >> cyber_rss/.env
       - name: get rss
         run: python cyber_rss/main.py
