@@ -6,7 +6,7 @@ import schedule
 import time
 import os
 def get_all():
-    datas = open('./data.csv', 'r').readlines()
+    datas = open('cyber_rss/data.csv', 'r').readlines()
     sources = []
     for data in datas:
         tmp = data.split(',')
