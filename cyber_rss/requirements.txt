@@ -1,0 +1,8 @@
+requests
+python-telegram-bot
+SQLAlchemy
+python-dotenv
+schedule
+pytz
+python-dotenv
+psycopg2-binary
