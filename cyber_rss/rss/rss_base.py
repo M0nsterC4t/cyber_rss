@@ -26,7 +26,7 @@ class RSSBase(ABC):
                     }
         response = requests.get(self._rss_link, headers=headers, timeout=30)
         # print(response.text)
-        return response.text
+        return response.text.decode('utf-8')
     @abstractmethod
     def parse_data(self):
         pass
