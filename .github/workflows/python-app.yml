@@ -39,4 +39,4 @@ jobs:
         echo THREAD_MESSAGE_ID=$THREAD_MESSAGE_ID >> .env
     - name: Run main
       run: |
-        python main.py
+        main.py
