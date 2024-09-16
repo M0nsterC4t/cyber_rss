@@ -22,19 +22,23 @@ class RssSocRadar(RSSBase):
         data = self.get_rss_data()
         # print(data)
         bot = TelegramBot()
-        tree = ET.ElementTree(ET.fromstring(data))
-        root = tree.getroot()
-        items = root.findall("./channel/item")
-        for item in items:
-            title = item.find('title').text
-            link = item.find('link').text
-            pubDate = item.find('pubDate').text
-            #description = item.find('description').text[:256] if item.find('description') is not None else "N/A"
-            category = item.find('category').text if item.find('category') is not None else "N/A"
+        try:
+            tree = ET.ElementTree(ET.fromstring(data))
+            root = tree.getroot()
+            items = root.findall("./channel/item")
+            for item in items:
+                title = item.find('title').text
+                link = item.find('link').text
+                pubDate = item.find('pubDate').text
+                #description = item.find('description').text[:256] if item.find('description') is not None else "N/A"
+                category = item.find('category').text if item.find('category') is not None else "N/A"
+                
+                msg = f"[{self._name}][{category}]\n{title}\n{pubDate}\n{link}\n"
+                print(msg)
+                if self.is_one_hour(pubDate):
+                    await bot.send_message(msg)
+                    time.sleep(4)
+        except Exception as e:
+            print(e)
             
-            msg = f"[{self._name}][{category}]\n{title}\n{pubDate}\n{link}\n"
-            print(msg)
-            if self.is_one_hour(pubDate):
-                await bot.send_message(msg)
-                time.sleep(4)
 
