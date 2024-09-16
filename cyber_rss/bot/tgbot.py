@@ -4,7 +4,7 @@ import requests
 from telegram.ext import ExtBot
 
 from dotenv import load_dotenv
-load_dotenv()
+# load_dotenv()
 bot_token = os.getenv('BOT_TOKEN')
 chat_id = os.getenv('CHAT_ID')
 message_thread_id=os.getenv('THREAD_MESSAGE_ID')

@@ -37,4 +37,8 @@ jobs:
           echo "THREAD_MESSAGE_ID=${{ secrets.THREAD_MESSAGE_ID }}" >> cyber_rss/.env
           cat cyber_rss/.env
       - name: get rss
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+          THREAD_MESSAGE_ID: ${{ secrets.THREAD_MESSAGE_ID }}
         run: python cyber_rss/main.py
